@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Kassierkontrollsystem
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+<div *ngIf="results">
+  <p>{{results.text}}</p>
+  <p>{{results.format}}</p>
+  <p>{{results.cancelled}}</p>
+</div>
+
+
+    <button ion button (click)="scanBarcode()">Scan Barcode</button>
+</ion-content>

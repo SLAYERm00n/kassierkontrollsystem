@@ -10,13 +10,24 @@ import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-sca
 export class HomePage {
 
 options: BarcodeScannerOptions;
-results: {};
 haveProducts:boolean;
+result: Object;
+products: any;
 
   constructor(public navCtrl: NavController, private barcode: BarcodeScanner) {
 
   }
 async scanBarcode() {
+
+
+  await this.barcode.scan().then(data =>{
+    this.result = JSON.parse(data['text']);
+    this.products = this.result['products'];
+
+    console.dir(this.result);
+    console.dir(this.products);
+  })
+  /*
   this.results = await this.barcode.scan();
   var toJason = this.results["text"];
   console.log("toJason");
@@ -24,7 +35,7 @@ async scanBarcode() {
   var jsonData = JSON.parse(toJason);
   console.log("jsonData");
   console.log(jsonData);
-   this.haveProducts = true;
+   this.haveProducts = true; */
 }
 /*
 parseToJson(){

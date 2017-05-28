@@ -11,6 +11,7 @@ export class HomePage {
 
 options: BarcodeScannerOptions;
 results: {};
+haveProducts:boolean;
 
   constructor(public navCtrl: NavController, private barcode: BarcodeScanner) {
 
@@ -23,7 +24,7 @@ async scanBarcode() {
   var jsonData = JSON.parse(toJason);
   console.log("jsonData");
   console.log(jsonData);
-   
+   this.haveProducts = true;
 }
 /*
 parseToJson(){

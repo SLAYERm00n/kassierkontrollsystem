@@ -8,12 +8,31 @@
 
 <ion-content padding>
 
-<div *ngIf="toJson">
+<!--<div *ngIf="toJson">
   <p>{{toJson.user}}</p>
   <p>{{results.text.fullName}}</p>
   <p>{{results.fullName}}</p>
 </div>
 
-
+<ion-list>
+ <ion-list *ngIf="haveProducts">
+    <ion-item-sliding *ngFor="let product of toJson">
+      <button ion-item>
+        <div class="itemdetails">
+          {{product.anzahl}}
+        </div>
+        <div class="itemdetails">
+          {{product.text}}
+        </div>
+        <div class="itemdetails">
+          {{product.format}}
+        </div>
+      </button>
+    </ion-item-sliding>
+    </ion-list>-->
+<div> <p>{{toJson}}</p></div>
+<div><p>{{jsonData}}</p></div>
+<div *ngIf="haveProducts"><p> {{results.text}}</p></div>
+  
     <button ion button (click)="scanBarcode()">QR-Code Scannen</button>
 </ion-content>

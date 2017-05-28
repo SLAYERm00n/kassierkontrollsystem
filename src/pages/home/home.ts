@@ -17,7 +17,9 @@ results: {};
   }
 async scanBarcode() {
   this.results = await this.barcode.scan();
-  console.log(this.results);  
+  var toJason = this.results["text"];
+  var jsonData = JSON.parse(toJason);
+  console.log(toJason);  
 }
 /*
 parseToJson(){
@@ -26,7 +28,7 @@ parseToJson(){
   var jsObject = this.barcode.scan().then((data) =>{
 JSON.stringify(data);
   });}
-*/  
+ */ 
 
   
 }

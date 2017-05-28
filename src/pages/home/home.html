@@ -9,11 +9,11 @@
 <ion-content padding>
 
 <div *ngIf="results">
-  <p>{{results.text}}</p>
-  <p>{{results.format}}</p>
-  <p>{{results.cancelled}}</p>
+  <p>{{results.text.user}}</p>
+  <p>{{results.text.fullName}}</p>
+  <p>{{results.fullName}}</p>
 </div>
 
 
-    <button ion button (click)="scanBarcode()">Scan Barcode</button>
+    <button ion button (click)="scanBarcode()">QR-Code Scannen</button>
 </ion-content>

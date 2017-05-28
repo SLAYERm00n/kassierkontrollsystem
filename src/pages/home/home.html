@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar color="primary">
     <ion-title>
-      Kassierkontrollsystem
+      Self-Check-Out
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -13,7 +13,14 @@
   <p>{{results.text.fullName}}</p>
   <p>{{results.fullName}}</p>
 </div>-->
-<p>{{fullName}}</p>
+
+<ion-item class="cameralabel">
+  <ion-label class="app-padding" (click)="scanBarcode()">Klicken zum öffnen der Kamera</ion-label>
+    <button ion button icon-only (click)="scanBarcode()">QR-Code Scannen
+        <ion-icon name="camera"></ion-icon>
+      </button>
+</ion-item>
+<p *ngIf="scanned">{{user.fullName}}</p>
 
  <ion-list >
     <ion-item-sliding *ngFor="let product of products">
@@ -30,8 +37,14 @@
       </button>
     </ion-item-sliding>
     </ion-list>
-
+<ion-footer no-shadow>
+	<ion-toolbar position="bottom">
+      <ion-item><div class="itemdetails">Summe:</div><div class="itemdetails">{{sumAktProducts | number:'1.2'}}€</div></ion-item>
+      <button ion-button full (click)="finalPayment()">Einkauf abschließen</button>
+      <div id="qrcode"></div>
+  </ion-toolbar>
+</ion-footer>
 
   
-    <button ion button (click)="scanBarcode()">QR-Code Scannen</button>
+   
 </ion-content>

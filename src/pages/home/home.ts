@@ -13,6 +13,8 @@ options: BarcodeScannerOptions;
 haveProducts:boolean;
 result: Object;
 products: any;
+fullName: any;
+
 
   constructor(public navCtrl: NavController, private barcode: BarcodeScanner) {
 
@@ -23,7 +25,7 @@ async scanBarcode() {
   await this.barcode.scan().then(data =>{
     this.result = JSON.parse(data['text']);
     this.products = this.result['products'];
-
+    this.fullName = this.result['fullName'];
     console.dir(this.result);
     console.dir(this.products);
   })

@@ -12,27 +12,26 @@
   <p>{{toJson.user}}</p>
   <p>{{results.text.fullName}}</p>
   <p>{{results.fullName}}</p>
-</div>
+</div>-->
+<p>{{fullName}}</p>
 
-<ion-list>
- <ion-list *ngIf="haveProducts">
-    <ion-item-sliding *ngFor="let product of toJson">
+ <ion-list >
+    <ion-item-sliding *ngFor="let product of products">
       <button ion-item>
+        <div class="itemdetails">
+          {{product.productName}}
+        </div>
         <div class="itemdetails">
           {{product.anzahl}}
         </div>
         <div class="itemdetails">
-          {{product.text}}
-        </div>
-        <div class="itemdetails">
-          {{product.format}}
+          {{product.price*product.anzahl | number:'1.2'}}€
         </div>
       </button>
     </ion-item-sliding>
-    </ion-list>-->
-<div> <p>{{toJson}}</p></div>
-<div><p>{{jsonData}}</p></div>
-<div *ngIf="haveProducts"><p> {{results.text}}</p></div>
+    </ion-list>
+
+
   
     <button ion button (click)="scanBarcode()">QR-Code Scannen</button>
 </ion-content>

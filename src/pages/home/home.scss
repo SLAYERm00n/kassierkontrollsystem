@@ -1,3 +1,12 @@
 page-home {
+.itemdetails{
+        float:left;
+        width:20%;
+        text-align: right;
+    }
 
+       .itemdetails:first-child{
+           text-align: center;
+      width: 60%;
+    }
 }

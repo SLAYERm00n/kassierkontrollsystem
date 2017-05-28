@@ -7,11 +7,16 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { Payselectscreen  } from '../pages/payselectscreen/payselectscreen';
+import { Sumscreen  } from '../pages/sumscreen/sumscreen';
 
+import { SumscreenModule  } from '../pages/sumscreen/sumscreen.module';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    Payselectscreen,
+    Sumscreen
   ],
   imports: [
    BrowserModule,
@@ -20,7 +25,9 @@ import { HomePage } from '../pages/home/home';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    Sumscreen,
+    Payselectscreen
   ],
   providers: [
     StatusBar,

@@ -1,50 +1,19 @@
 <ion-header>
   <ion-navbar color="primary">
     <ion-title>
-      Self-Check-Out
+      Kassierkontrollsystem
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+  <h3> Bitte auf Scannen drücken und den angezeigten QR-Code auf dem Smartphone einscannen!</h3>
 
-<!--<div *ngIf="toJson">
-  <p>{{toJson.user}}</p>
-  <p>{{results.text.fullName}}</p>
-  <p>{{results.fullName}}</p>
-</div>-->
-
-<ion-item class="cameralabel">
-  <ion-label class="app-padding" (click)="scanBarcode()">Klicken zum öffnen der Kamera</ion-label>
-    <button ion button icon-only (click)="scanBarcode()">QR-Code Scannen
-        <ion-icon name="camera"></ion-icon>
-      </button>
-</ion-item>
-<p *ngIf="scanned">{{user.fullName}}</p>
-
- <ion-list >
-    <ion-item-sliding *ngFor="let product of products">
-      <button ion-item>
-        <div class="itemdetails">
-          {{product.productName}}
-        </div>
-        <div class="itemdetails">
-          {{product.anzahl}}
-        </div>
-        <div class="itemdetails">
-          {{product.price*product.anzahl | number:'1.2'}}€
-        </div>
-      </button>
-    </ion-item-sliding>
-    </ion-list>
-<ion-footer no-shadow>
+   <ion-footer no-shadow>
 	<ion-toolbar position="bottom">
-      <ion-item><div class="itemdetails">Summe:</div><div class="itemdetails">{{sumAktProducts | number:'1.2'}}€</div></ion-item>
-      <button ion-button full (click)="finalPayment()">Einkauf abschließen</button>
-      <div id="qrcode"></div>
+      
+      <button ion-button full (click)="scanBarcode()">QR-Code Scannen einscannen!</button>
+     	
   </ion-toolbar>
 </ion-footer>
-
-  
-   
 </ion-content>

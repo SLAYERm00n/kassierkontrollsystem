@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner'
-
+import { Sumscreen  } from '../sumscreen/sumscreen';
 
 @Component({
   selector: 'page-home',
@@ -10,7 +10,6 @@ import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-sca
 export class HomePage {
 
 options: BarcodeScannerOptions;
-haveProducts:boolean;
 result: Object;
 products: any;
 user : any;
@@ -32,20 +31,20 @@ async scanBarcode() {
     console.dir(this.result);
     console.dir(this.products);
     this.scanned = true;
-  })
 
+  
+  })
+ this.goToPayscreen();
 }
 
+public goToPayscreen(){
+    this.navCtrl.push(Sumscreen, {
+       products: this.products,
+       user :this.user, 
+       sumAktProducts :this.sumAktProducts
+     });
+}
 
-
-/*
-parseToJson(){
-  var data = this.results;
-  console.log(data);
-  var jsObject = this.barcode.scan().then((data) =>{
-JSON.stringify(data);
-  });}
- */ 
 
   
 }

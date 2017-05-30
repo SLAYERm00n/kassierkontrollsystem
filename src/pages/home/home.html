@@ -7,13 +7,17 @@
 </ion-header>
 
 <ion-content padding>
-  <h3> Bitte auf Scannen drücken und den angezeigten QR-Code auf dem Smartphone einscannen!</h3>
 
-   <ion-footer no-shadow>
-	<ion-toolbar position="bottom">
-      
-      <button ion-button full (click)="scanBarcode()">QR-Code Scannen einscannen!</button>
-     	
-  </ion-toolbar>
+
+  <h3> Bitte Scannen Sie den QR-Code Self-Checkout.</h3>
+
+
+      <div class="homebutton">
+      <button ion-button Large round large (click)="scanBarcode()"><h1>QR-Code Scannen.</h1></button>
+      </div>
+<ion-footer>
+      <button ion-button full large secondary (click)="getMitarbeiter()"><h1>Mitarbeiter rufen.</h1></button>
 </ion-footer>
+ 
+
 </ion-content>

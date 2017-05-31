@@ -1,27 +1,27 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Payselectscreen } from '../payselectscreen/payselectscreen';
 
 /**
- * Generated class for the StaffLogin page.
+ * Generated class for the PurchaseOverview page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
 @IonicPage()
 @Component({
-  selector: 'page-staff-login',
-  templateUrl: 'staff-login.html',
+  selector: 'page-purchase-overview',
+  templateUrl: 'purchase-overview.html',
 })
-export class StaffLogin {
+export class PurchaseOverview {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad StaffLogin');
+    console.log('ionViewDidLoad PurchaseOverview');
   }
-
-scanBarcode(){
-  
+openPaySelectScreen(){
+  this.navCtrl.push(Payselectscreen);
 }
 }

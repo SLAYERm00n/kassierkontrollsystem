@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { PurchaseOverview } from '../purchase-overview/purchase-overview';
+
+
+
 
 /**
  * Generated class for the PurchaseCheck page.
@@ -20,5 +24,7 @@ export class PurchaseCheck {
   ionViewDidLoad() {
     console.log('ionViewDidLoad PurchaseCheck');
   }
-
+openPurchaseOverview(){
+  this.navCtrl.push(PurchaseOverview);
+}
 }

@@ -78,9 +78,7 @@ public goToGoodbyescreen(){
 
 
 getMitarbeiter(){
-
   this.navCtrl.push(StaffLogin);
-
 }
   
 }

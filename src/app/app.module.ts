@@ -16,6 +16,8 @@ import { EcGoodbyescreen } from '../pages/ec-goodbyescreen/ec-goodbyescreen';
 import { StaffLogin } from '../pages/staff-login/staff-login';
 import { PurchaseCheck } from '../pages/purchase-check/purchase-check';
 import { Checkscreen } from '../pages/checkscreen/checkscreen';
+import { PurchaseOverview } from '../pages/purchase-overview/purchase-overview';
+
 
 
 
@@ -31,7 +33,8 @@ import { Checkscreen } from '../pages/checkscreen/checkscreen';
     EcGoodbyescreen,
     StaffLogin,
     PurchaseCheck,
-    Checkscreen
+    Checkscreen,
+    PurchaseOverview
   ],
   imports: [
    BrowserModule,
@@ -48,7 +51,8 @@ import { Checkscreen } from '../pages/checkscreen/checkscreen';
     EcGoodbyescreen,
     StaffLogin,
     PurchaseCheck,
-    Checkscreen
+    Checkscreen,
+    PurchaseOverview
   ],
   providers: [
     StatusBar,

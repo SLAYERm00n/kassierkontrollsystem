@@ -16,29 +16,46 @@
 
 <ion-content padding>
 
-   <h4>Bitte Bezahlungsart auswählen,{{user.fullName}}!</h4>
-   
-<ion-list radio-group [(ngModel)]="payment">
+   <h4>Bitte Auflademenge auswählen:</h4>
+    <button ion-button full large (click)="payedGuthaben(10)"><h1>10€</h1></button>
+    <button ion-button full large (click)="payedGuthaben(20)"><h1>20€</h1></button>
+    <button ion-button full large (click)="payedGuthaben(50)"><h1>50€</h1></button>
+    <button ion-button full large (click)="payedGuthaben(100)"><h1>100€</h1></button>
+
+<ion-footer no-shadow>
+
+
+<ion-list>
   <ion-item>
-    <ion-label>Ec-Karte</ion-label>
-    <ion-radio value="ec-karte" checked></ion-radio>
+    <div class="itemdetails">
+    vorheriges Guthaben:
+    </div>
+    <div class="itemdetails">
+      {{guthaben | number:'1.2'}}€
+    </div>
   </ion-item>
   <ion-item>
-    <ion-label>PayPal</ion-label>
-    <ion-radio value="paypal"></ion-radio>
+    <div class="itemdetails">
+    Einkaufssumme:
+    </div>
+    <div class="itemdetails">
+     - {{sumAktProducts | number:'1.2'}}€
+    </div>
   </ion-item>
   <ion-item>
-    <ion-label>Guthaben</ion-label>
-    <ion-radio value="guthaben" ></ion-radio>
+    <div class="itemdetails">
+    Fehlbetrag:
+    </div>
+    <div class="itemdetails">
+      {{guthaben-sumAktProducts | number:'1.2'}}€
+    </div>
   </ion-item>
 </ion-list>
 
-<ion-footer no-shadow>
-	<ion-toolbar position="bottom">
-      
-      <button ion-button full (click)="payed()">Endgültig abbuchen!</button>
-     	
-  </ion-toolbar>
+
+
+      <button ion-button full large (click)="getMitarbeiter()"><h1>Mitarbeiter rufen.</h1></button>
+ 
 </ion-footer>
 
 </ion-content>

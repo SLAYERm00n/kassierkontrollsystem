@@ -1,52 +1,50 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {EcPayscreen} from '../ec-payscreen/ec-payscreen';
+import { EcGoodbyescreen } from '../ec-goodbyescreen/ec-goodbyescreen';
 /**
- * Generated class for the Payselectscreen page.
+ * Generated class for the EcPayscreen page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
 @IonicPage()
 @Component({
-  selector: 'page-payselectscreen',
-  templateUrl: 'payselectscreen.html',
+  selector: 'page-ec-payscreen',
+  templateUrl: 'ec-payscreen.html',
 })
-export class Payselectscreen {
-
-result: Object;
+export class EcPayscreen {
 products: any;
 user : any;
 fullName: string;
 sumAktProducts: number = 0;
 scanned: boolean = false;
 guthaben: number = 0;
-aufladeBetrag:number = 0;
+aufladeBetrag:number;
+wurdeAufgeladen: boolean = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.user = navParams.get("user");
     this.products = navParams.get("products");
     this.sumAktProducts = navParams.get("sumAktProducts");
     this.guthaben = navParams.get("guthaben");
-    
+    this.aufladeBetrag = navParams.get("aufladeBetrag");
+    if(this.aufladeBetrag == 0)
+    { 
+        this.wurdeAufgeladen = false;
+        }
+    else{
+      this.wurdeAufgeladen = true;
+        }
+        
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad Payselectscreen');
+    console.log('ionViewDidLoad EcPayscreen');
   }
 
-payedGuthaben(aufladGuthaben: number){
+EcFinalPayed(){
 
- this.aufladeBetrag = aufladGuthaben;
- 
-  this.navCtrl.push(EcPayscreen,{
-      user: this.user,
-      products: this.products,
-      sumAktProducts :this.sumAktProducts,
-      guthaben : this.guthaben,
-      aufladeBetrag: aufladGuthaben
-    }
-  
-  );
+  this.navCtrl.push(EcGoodbyescreen)
 }
+
 }

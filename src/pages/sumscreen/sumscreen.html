@@ -7,16 +7,26 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Summe</ion-title>
+    <ion-title>Nicht genug Guthaben</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-<h4 *ngIf="scanned">Bitte überprüfen und bezahlen Sie ihren Einkauf,{{user.fullName}}!</h4>
+ 
+<h3>Ihr Guthaben reicht für diesen Einkauf leider nicht
+aus. Bitte bezahlen Sie den Überschussbetrag per EC-Automat.
+Wollen Sie zudem Ihr Guthaben aufladen?</h3>
 
- <ion-list >
+
+    
+    <button ion-button full  large (click)="wantToLoad()"><h1>Ja</h1></button>
+    <button ion-button full large (click)="dontWantToLoad()"><h1>Nein</h1></button>
+   
+
+
+ <!--<ion-list >
     <ion-item-sliding *ngFor="let product of products">
       <button ion-item>
         <div class="itemdetails">
@@ -30,13 +40,42 @@
         </div>
       </button>
     </ion-item-sliding>
-    </ion-list>
+    </ion-list>-->
+
 <ion-footer no-shadow>
-	<ion-toolbar position="bottom">
-      <ion-item><div class="itemdetails">Summe:</div><div class="itemdetails">{{sumAktProducts | number:'1.2'}}€</div></ion-item>
-      <button ion-button full (click)="finalPayment()">Bezahlen!</button>
-     
-  </ion-toolbar>
+
+<ion-card>
+<ion-list>
+  <ion-item>
+    <div class="itemdetails">
+    vorheriges Guthaben:
+    </div>
+    <div class="itemdetails">
+      {{guthaben | number:'1.2'}}€
+    </div>
+  </ion-item>
+  <ion-item>
+    <div class="itemdetails">
+    Einkaufssumme:
+    </div>
+    <div class="itemdetails">
+     - {{sumAktProducts | number:'1.2'}}€
+    </div>
+  </ion-item>
+  <ion-item>
+    <div class="itemdetails">
+    fehlendes Guthaben: 
+    </div>
+    <div class="itemdetails">
+      {{guthaben-sumAktProducts | number:'1.2'}}€
+    </div>
+  </ion-item>
+</ion-list>
+</ion-card>
+
+
+      <button ion-button full large (click)="getMitarbeiter()"><h1>Mitarbeiter rufen.</h1></button>
+ 
 </ion-footer>
 
   

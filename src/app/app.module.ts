@@ -11,14 +11,18 @@ import { HomePage } from '../pages/home/home';
 import { Payselectscreen  } from '../pages/payselectscreen/payselectscreen';
 import { Sumscreen  } from '../pages/sumscreen/sumscreen';
 import {Goodbyescreen} from '../pages/goodbyescreen/goodbyescreen';
-import { SumscreenModule  } from '../pages/sumscreen/sumscreen.module';
+import { EcPayscreen } from '../pages/ec-payscreen/ec-payscreen';
+import { EcGoodbyescreen } from '../pages/ec-goodbyescreen/ec-goodbyescreen';
+
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     Payselectscreen,
     Sumscreen,
-    Goodbyescreen
+    Goodbyescreen,
+    EcPayscreen,
+    EcGoodbyescreen
   ],
   imports: [
    BrowserModule,
@@ -30,7 +34,9 @@ import { SumscreenModule  } from '../pages/sumscreen/sumscreen.module';
     HomePage,
     Sumscreen,
     Payselectscreen,
-    Goodbyescreen
+    Goodbyescreen,
+    EcPayscreen,
+    EcGoodbyescreen
   ],
   providers: [
     StatusBar,

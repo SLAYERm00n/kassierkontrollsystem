@@ -35,19 +35,27 @@ async scanBarcode() {
 
   
   })
+if(this.user != null){
+
 if(this.guthaben > this.sumAktProducts){
                 this.goToGoodbyescreen();
               }
 else{
-      this.goToPayscreen();
+      this.goToSumscreen();
     }
+
+}else{
+       alert("Scan war nicht erfolgreich!");
+      }
+
 }
 
-public goToPayscreen(){
+public goToSumscreen(){
     this.navCtrl.push(Sumscreen, {
        products: this.products,
        user :this.user, 
-       sumAktProducts :this.sumAktProducts
+       sumAktProducts :this.sumAktProducts,
+       guthaben : this.guthaben
      });
 }
 

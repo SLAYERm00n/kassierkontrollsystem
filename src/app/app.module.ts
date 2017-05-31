@@ -5,18 +5,20 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
+//Seiten
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { Payselectscreen  } from '../pages/payselectscreen/payselectscreen';
 import { Sumscreen  } from '../pages/sumscreen/sumscreen';
-
+import {Goodbyescreen} from '../pages/goodbyescreen/goodbyescreen';
 import { SumscreenModule  } from '../pages/sumscreen/sumscreen.module';
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     Payselectscreen,
-    Sumscreen
+    Sumscreen,
+    Goodbyescreen
   ],
   imports: [
    BrowserModule,
@@ -27,7 +29,8 @@ import { SumscreenModule  } from '../pages/sumscreen/sumscreen.module';
     MyApp,
     HomePage,
     Sumscreen,
-    Payselectscreen
+    Payselectscreen,
+    Goodbyescreen
   ],
   providers: [
     StatusBar,

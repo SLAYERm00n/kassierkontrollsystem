@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner'
 import { Sumscreen  } from '../sumscreen/sumscreen';
-
+import { Goodbyescreen  } from '../goodbyescreen/goodbyescreen';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -16,6 +16,7 @@ user : any;
 fullName: string;
 sumAktProducts: number = 0;
 scanned: boolean = false;
+guthaben: number = 20;
 
   constructor(public navCtrl: NavController, private barcode: BarcodeScanner) {
 
@@ -34,7 +35,12 @@ async scanBarcode() {
 
   
   })
- this.goToPayscreen();
+if(this.guthaben > this.sumAktProducts){
+                this.goToGoodbyescreen();
+              }
+else{
+      this.goToPayscreen();
+    }
 }
 
 public goToPayscreen(){
@@ -45,8 +51,21 @@ public goToPayscreen(){
      });
 }
 
+public goToGoodbyescreen(){
+    this.navCtrl.push(Goodbyescreen, {
+       products: this.products,
+       user :this.user, 
+       sumAktProducts :this.sumAktProducts,
+       guthaben : this.guthaben
+     });
+}
+
+
+
+
+
 getMitarbeiter(){
-  
+
 }
   
 }

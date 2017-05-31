@@ -1,0 +1,16 @@
+page-staff-login {
+.LoginButton{
+        text-align: center;
+        width: 100%;
+        height: 80%;
+        font-size: 40pt;
+        $button-round-padding: 10000000;
+}
+
+ h3{
+        text-align: center;
+        color: color($colors, secondary);
+        margin-top: 30px !important;
+        margin-bottom: 30px !important;
+    }
+}

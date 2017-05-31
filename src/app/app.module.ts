@@ -13,6 +13,12 @@ import { Sumscreen  } from '../pages/sumscreen/sumscreen';
 import {Goodbyescreen} from '../pages/goodbyescreen/goodbyescreen';
 import { EcPayscreen } from '../pages/ec-payscreen/ec-payscreen';
 import { EcGoodbyescreen } from '../pages/ec-goodbyescreen/ec-goodbyescreen';
+import { StaffLogin } from '../pages/staff-login/staff-login';
+import { PurchaseCheck } from '../pages/purchase-check/purchase-check';
+import { Checkscreen } from '../pages/checkscreen/checkscreen';
+
+
+
 
 @NgModule({
   declarations: [
@@ -22,7 +28,10 @@ import { EcGoodbyescreen } from '../pages/ec-goodbyescreen/ec-goodbyescreen';
     Sumscreen,
     Goodbyescreen,
     EcPayscreen,
-    EcGoodbyescreen
+    EcGoodbyescreen,
+    StaffLogin,
+    PurchaseCheck,
+    Checkscreen
   ],
   imports: [
    BrowserModule,
@@ -36,7 +45,10 @@ import { EcGoodbyescreen } from '../pages/ec-goodbyescreen/ec-goodbyescreen';
     Payselectscreen,
     Goodbyescreen,
     EcPayscreen,
-    EcGoodbyescreen
+    EcGoodbyescreen,
+    StaffLogin,
+    PurchaseCheck,
+    Checkscreen
   ],
   providers: [
     StatusBar,

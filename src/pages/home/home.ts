@@ -3,6 +3,11 @@ import { NavController } from 'ionic-angular';
 import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner'
 import { Sumscreen  } from '../sumscreen/sumscreen';
 import { Goodbyescreen  } from '../goodbyescreen/goodbyescreen';
+import { StaffLogin } from '../staff-login/staff-login';
+import { PurchaseCheck } from '../purchase-check/purchase-check';
+import { Checkscreen } from '../checkscreen/checkscreen';
+
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -73,6 +78,8 @@ public goToGoodbyescreen(){
 
 
 getMitarbeiter(){
+
+  this.navCtrl.push(StaffLogin);
 
 }
   

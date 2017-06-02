@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { StaffLogin } from '../staff-login/staff-login';
+
 
 /**
  * Generated class for the Checkscreen page.
@@ -23,6 +25,6 @@ export class Checkscreen {
 
 
 openStaffLogin(){
-
+this.navCtrl.push(StaffLogin);
 }
 }

@@ -1,11 +1,21 @@
 page-staff-login {
+
+
 .LoginButton{
-        text-align: center;
+        text-align: justify;
         width: 100%;
         height: 80%;
-        font-size: 40pt;
+        font-size: 1.5em;
         $button-round-padding: 10000000;
 }
+
+h1{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: -2%;
+}
+
 
  h3{
         text-align: center;

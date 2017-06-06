@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { HomePage } from '../home/home';
 /**
  * Generated class for the EcGoodbyescreen page.
  *
@@ -25,7 +25,7 @@ timer: number = 10;
        this.wait(1000);
        this.timer = this.timer-1
     }
-    this.navCtrl.popAll();
+    this.navCtrl.setRoot(HomePage);
   }
 
 

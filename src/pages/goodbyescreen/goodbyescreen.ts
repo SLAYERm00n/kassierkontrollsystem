@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import * as firebase from 'firebase';
+
+
 
 /**
  * Generated class for the Goodbyescreen page.
@@ -17,11 +20,14 @@ user: any;
 guthaben: number = 0;
 sumAktProducts: number = 0;
 timer: number = 10;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.user = navParams.get("user");
     this.guthaben = navParams.get("guthaben");
     this.sumAktProducts = navParams.get("sumAktProducts");
   this.timer = 10;
+
+  this.writeDataToFirebase();
   }
 
   ionViewDidLoad() {
@@ -43,6 +49,15 @@ wait(ms){
      end = new Date().getTime();
      
   }
+}
+
+writeDataToFirebase(){
+firebase.database().ref('users/' + 'epTFLpw9bFUNpFKma5Gxa3dLs6C3' + '/orders/').push().set({
+  uid: 'epTFLpw9bFUNpFKma5Gxa3dLs6C3',
+  /**products : dataPrv.getAktProducts(),**/
+  date : new Date().getDate()
+
+});
 }
 
 }

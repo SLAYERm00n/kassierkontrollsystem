@@ -20,14 +20,17 @@ user: any;
 guthaben: number = 0;
 sumAktProducts: number = 0;
 timer: number = 10;
+products: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.user = navParams.get("user");
     this.guthaben = navParams.get("guthaben");
     this.sumAktProducts = navParams.get("sumAktProducts");
+    this.products = navParams.get("products");
+
   this.timer = 10;
 
-  this.writeDataToFirebase();
+  
   }
 
   ionViewDidLoad() {
@@ -40,6 +43,8 @@ timer: number = 10;
        this.wait(1000);
        this.timer = this.timer-1
     }
+
+    this.writeDataToFirebase();
     this.navCtrl.pop();
   }
 wait(ms){
@@ -54,7 +59,8 @@ wait(ms){
 writeDataToFirebase(){
 firebase.database().ref('users/' + 'epTFLpw9bFUNpFKma5Gxa3dLs6C3' + '/orders/').push().set({
   uid: 'epTFLpw9bFUNpFKma5Gxa3dLs6C3',
-  /**products : dataPrv.getAktProducts(),**/
+  products : this.products,
+  sumProducts : this.sumAktProducts,
   date : new Date().getDate()
 
 });

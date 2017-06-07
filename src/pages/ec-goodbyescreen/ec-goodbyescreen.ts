@@ -14,7 +14,15 @@ import { HomePage } from '../home/home';
 })
 export class EcGoodbyescreen {
 timer: number = 10;
+user: any;
+sumAktProducts: number = 0;
+products: any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+    this.user = navParams.get("user");
+    this.sumAktProducts = navParams.get("sumAktProducts");
+    this.products = navParams.get("products");
   }
 
   ionViewDidLoad() {
@@ -25,6 +33,8 @@ timer: number = 10;
        this.wait(1000);
        this.timer = this.timer-1
     }
+    
+    this.writeDataToFirebase();
     this.navCtrl.setRoot(HomePage);
   }
 
@@ -35,5 +45,15 @@ wait(ms){
    while(end < start + ms) {
      end = new Date().getTime();
   }
+}
+
+writeDataToFirebase(){
+firebase.database().ref('users/' + this.user.uid + '/orders/').push().set({
+  uid: this.user.uid,
+  products : this.products,
+  sumProducts : this.sumAktProducts,
+  date : new Date().getDate()
+
+});
 }
 }

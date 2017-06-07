@@ -31,10 +31,23 @@ store0: any;
           this.mitarbeiterID = this.store['MA'];
           console.log("MitarbeiterID");
           console.dir(this.mitarbeiterID);
+          //this.checkMA(this.mitarbeiterID);
         }).catch((err) => {
           alert(err);
       });}
 
+checkMA(id){
+  return new Promise((resolve, reject) =>{
+    for(let i=0; i < this.store.lenght; i++){
+      if(this.store[i].MA === id){
+        //this.checkscreen;
+      }
+      resolve('Mitarbeiter gefunden')
+      break;
+    }
+    reject('Mitarbeiter nicht gefunden');
+      })
+    }
   
   ionViewDidLoad() {
     console.log('ionViewDidLoad StaffLogin');

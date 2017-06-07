@@ -18,10 +18,23 @@ export class StaffLogin {
 mitarbeiterID: any;
 result: any;
 store: any;
+store0: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private barcode: BarcodeScanner) {
   }
-
+  openScanner(){
+      this.barcode.scan().then((data) =>{
+          this.result = JSON.parse(data['text']);
+          this.store = this.result['store'];
+          console.log("this.strore");
+          console.dir(this.store);
+          this.mitarbeiterID = this.store['MA'];
+          console.log("MitarbeiterID");
+          console.dir(this.mitarbeiterID);
+        }).catch((err) => {
+          alert(err);
+      });}
+      /*
 async scanBarcode() {
 
 
@@ -38,7 +51,7 @@ async scanBarcode() {
 
   
   })
-}
+}*/
   
   ionViewDidLoad() {
     console.log('ionViewDidLoad StaffLogin');

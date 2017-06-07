@@ -5,6 +5,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { AngularFireModule } from 'angularfire2';
+import * as firebase from 'firebase';
+
 
 
 //Seiten

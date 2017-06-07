@@ -44,7 +44,7 @@ products: any;
        this.timer = this.timer-1
     }
 
-    this.writeDataToFirebase();
+    //this.writeDataToFirebase();
     this.navCtrl.pop();
   }
 wait(ms){
@@ -57,7 +57,7 @@ wait(ms){
 }
 
 writeDataToFirebase(){
-firebase.database().ref('users/' + 'epTFLpw9bFUNpFKma5Gxa3dLs6C3' + '/orders/').push().set({
+firebase.database().ref('/orders').push().set({
   uid: 'epTFLpw9bFUNpFKma5Gxa3dLs6C3',
   products : this.products,
   sumProducts : this.sumAktProducts,

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HomePage } from '../home/home';
+import * as firebase from 'firebase';
 /**
  * Generated class for the EcGoodbyescreen page.
  *
@@ -34,7 +35,7 @@ products: any;
        this.timer = this.timer-1
     }
     
-    this.writeDataToFirebase();
+    //this.writeDataToFirebase();
     this.navCtrl.setRoot(HomePage);
   }
 
@@ -48,7 +49,9 @@ wait(ms){
 }
 
 writeDataToFirebase(){
-firebase.database().ref('users/' + this.user.uid + '/orders/').push().set({
+var newKey = firebase.database().ref('/orders').push()
+firebase.database().ref('/orders/' + newKey).set(
+{
   uid: this.user.uid,
   products : this.products,
   sumProducts : this.sumAktProducts,

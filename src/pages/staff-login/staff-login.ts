@@ -34,24 +34,7 @@ store0: any;
         }).catch((err) => {
           alert(err);
       });}
-      /*
-async scanBarcode() {
 
-
-  await this.barcode.scan().then(data =>{
-    this.result = JSON.parse(data['text']);
-    this.store = this.result['store'];
-    console.log(this.store);
-    //this.products = this.result['products'];
-    //this.user = this.result['user'];
-    //this.sumAktProducts = this.result['summe'];
-    //console.dir(this.result);
-    //console.dir(this.products);
-    //this.scanned = true;
-
-  
-  })
-}*/
   
   ionViewDidLoad() {
     console.log('ionViewDidLoad StaffLogin');

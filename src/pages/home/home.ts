@@ -20,7 +20,7 @@ result: Object;
 products: any;
 user : any;
 sumAktProducts: number = 0;
-guthaben: number = 20;
+guthaben: number;
 
 data: any;
   constructor(public navCtrl: NavController, private barcode: BarcodeScanner, private dataPrv: DataProvider) {

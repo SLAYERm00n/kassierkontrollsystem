@@ -38,7 +38,7 @@ wurdeAufgeladen: boolean = false;
 
 EcFinalPayed(){
 
-  this.navCtrl.push(EcGoodbyescreen)
+  this.navCtrl.push(EcGoodbyescreen,{aufladeBetrag: this.aufladeBetrag})
 }
 
 }

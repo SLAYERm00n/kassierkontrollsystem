@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {Payselectscreen } from '../payselectscreen/payselectscreen';
 import {EcPayscreen } from '../ec-payscreen/ec-payscreen';
-
+import { DataProvider } from '../../providers/dataprovider';
 /**
  * Generated class for the Sumscreen page.
  *
@@ -17,10 +17,15 @@ import {EcPayscreen } from '../ec-payscreen/ec-payscreen';
 export class Sumscreen {
 data: Object;
 user: Object;
+sumAktProducts: number;
+guthaben: number;
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-
+  constructor(public navCtrl: NavController, public navParams: NavParams, public dataPrv : DataProvider) {
+    this.data = this.dataPrv.getData();
+    this.user = this.data['user'];
+    this.sumAktProducts  = this.data['summe'];
+    this.guthaben = this.user['amount'];
   }
 
   wantToLoad(){
@@ -29,6 +34,6 @@ user: Object;
 
 
   dontWantToLoad(){
-    this.navCtrl.push(EcPayscreen);
+    this.navCtrl.push(EcPayscreen,{aufladeBetrag : 0});
   }
 }

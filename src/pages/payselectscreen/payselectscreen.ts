@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {EcPayscreen} from '../ec-payscreen/ec-payscreen';
+import { DataProvider } from '../../providers/dataprovider';
 /**
  * Generated class for the Payselectscreen page.
  *
@@ -14,27 +15,25 @@ import {EcPayscreen} from '../ec-payscreen/ec-payscreen';
 })
 export class Payselectscreen {
 
-result: Object;
-products: any;
-user : any;
-fullName: string;
-sumAktProducts: number = 0;
-scanned: boolean = false;
-guthaben: number = 0;
+data: Object;
+user: Object;
+sumAktProducts: number;
+guthaben: number;
+
 aufladeBetrag:number = 0;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.user = navParams.get("user");
-    this.products = navParams.get("products");
-    this.sumAktProducts = navParams.get("sumAktProducts");
-    this.guthaben = navParams.get("guthaben");
+  constructor(public navCtrl: NavController, public navParams: NavParams,private dataPrv: DataProvider) {
+    this.data = this.dataPrv.getData();
+    this.user = this.data['user'];
+    this.sumAktProducts  = this.data['summe'];
+    this.guthaben = this.user['amount'];
     
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad Payselectscreen');
   }
-
+//Auswahl Menge Aufladung wird uebergeben
 payedGuthaben(aufladGuthaben: number){
 
  this.aufladeBetrag = aufladGuthaben;

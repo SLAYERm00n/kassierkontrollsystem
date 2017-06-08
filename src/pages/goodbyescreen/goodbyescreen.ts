@@ -21,13 +21,18 @@ export class Goodbyescreen {
 timer: number = 10;
 data: Object;
 user: Object;
-
-
+guthaben : number;
+sumAktProducts : number;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private dataPrv: DataProvider) {
     this.data = this.dataPrv.getData();
     this.user = this.data['user'];
+    this.sumAktProducts  = this.data['summe'];
+    this.guthaben = this.user['amount'];
     
+    //aktualisiertes Guthaben in die Datenbank laden
+    this.user['amount'] = this.guthaben - this.sumAktProducts;
+    this.dataPrv.updateUser(this.user);
   }
 
   ionViewDidLoad() {
@@ -50,6 +55,7 @@ user: Object;
 
     }) */
   }
+
 wait(ms){
    var start = new Date().getTime();
    var end = start;

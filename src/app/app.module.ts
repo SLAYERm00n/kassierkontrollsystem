@@ -22,6 +22,11 @@ import { PurchaseCheck } from '../pages/purchase-check/purchase-check';
 import { Checkscreen } from '../pages/checkscreen/checkscreen';
 import { PurchaseOverview } from '../pages/purchase-overview/purchase-overview';
 
+//provider
+
+import { DataProvider } from '../providers/dataprovider';
+
+
 
 
 
@@ -73,7 +78,7 @@ const config = {
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    {provide: ErrorHandler, useClass: IonicErrorHandler}, DataProvider,
     BarcodeScanner
   ]
 })

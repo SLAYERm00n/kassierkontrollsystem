@@ -13,19 +13,13 @@ import { EcGoodbyescreen } from '../ec-goodbyescreen/ec-goodbyescreen';
   templateUrl: 'ec-payscreen.html',
 })
 export class EcPayscreen {
-products: any;
-user : any;
-fullName: string;
-sumAktProducts: number = 0;
-scanned: boolean = false;
+
 guthaben: number = 0;
 aufladeBetrag:number;
 wurdeAufgeladen: boolean = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.user = navParams.get("user");
-    this.products = navParams.get("products");
-    this.sumAktProducts = navParams.get("sumAktProducts");
+
     this.guthaben = navParams.get("guthaben");
     this.aufladeBetrag = navParams.get("aufladeBetrag");
     if(this.aufladeBetrag == 0)

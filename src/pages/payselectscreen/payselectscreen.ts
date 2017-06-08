@@ -40,9 +40,6 @@ payedGuthaben(aufladGuthaben: number){
  this.aufladeBetrag = aufladGuthaben;
  
   this.navCtrl.push(EcPayscreen,{
-      user: this.user,
-      products: this.products,
-      sumAktProducts :this.sumAktProducts,
       guthaben : this.guthaben,
       aufladeBetrag: aufladGuthaben
     }

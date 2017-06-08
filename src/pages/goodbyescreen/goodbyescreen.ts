@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import * as firebase from 'firebase';
+import { DataProvider } from '../../providers/dataprovider';
+
 
 
 
@@ -16,21 +18,16 @@ import * as firebase from 'firebase';
   templateUrl: 'goodbyescreen.html',
 })
 export class Goodbyescreen {
-user: any;
-guthaben: number = 0;
-sumAktProducts: number = 0;
 timer: number = 10;
-products: any;
+data: Object;
+user: Object;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.user = navParams.get("user");
-    this.guthaben = navParams.get("guthaben");
-    this.sumAktProducts = navParams.get("sumAktProducts");
-    this.products = navParams.get("products");
 
-  this.timer = 10;
 
-  
+  constructor(public navCtrl: NavController, public navParams: NavParams, private dataPrv: DataProvider) {
+    this.data = this.dataPrv.getData();
+    this.user = this.data['user'];
+    
   }
 
   ionViewDidLoad() {
@@ -39,13 +36,19 @@ products: any;
   }
 
   ionViewDidEnter(){
-    while(this.timer > 0){
+    // BestellungsFunktion @ Phil
+   /* this.dataPrv.writeDataToFirebase().then(result =>{
+
+      while(this.timer > 0){
        this.wait(1000);
        this.timer = this.timer-1
-    }
+      }
+      
+      //this.writeDataToFirebase();
+      this.navCtrl.setRoot(HomePage);
+    }).catch(error =>{
 
-    //this.writeDataToFirebase();
-    this.navCtrl.pop();
+    }) */
   }
 wait(ms){
    var start = new Date().getTime();
@@ -54,16 +57,6 @@ wait(ms){
      end = new Date().getTime();
      
   }
-}
-
-writeDataToFirebase(){
-firebase.database().ref('/orders').push().set({
-  uid: 'epTFLpw9bFUNpFKma5Gxa3dLs6C3',
-  products : this.products,
-  sumProducts : this.sumAktProducts,
-  date : new Date().getDate()
-
-});
 }
 
 }

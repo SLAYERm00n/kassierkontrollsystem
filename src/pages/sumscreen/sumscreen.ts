@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {Payselectscreen } from '../payselectscreen/payselectscreen';
 import {EcPayscreen } from '../ec-payscreen/ec-payscreen';
+
 /**
  * Generated class for the Sumscreen page.
  *
@@ -14,41 +15,20 @@ import {EcPayscreen } from '../ec-payscreen/ec-payscreen';
   templateUrl: 'sumscreen.html',
 })
 export class Sumscreen {
-result: Object;
-products: any;
-user : any;
-fullName: string;
-sumAktProducts: number = 0;
-scanned: boolean = false;
-guthaben: number = 0;
+data: Object;
+user: Object;
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams ) {
-  this.products = navParams.get("products");
-    this.sumAktProducts = navParams.get("sumAktProducts");
-    this.user = navParams.get("user");
-    this.guthaben = navParams.get("guthaben");
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+
   }
-wantToLoad(){
 
- this.navCtrl.push(Payselectscreen, {
-       user: this.user,
-       products: this.products,
-       sumAktProducts :this.sumAktProducts,
-       guthaben : this.guthaben
- }
- );
-    } 
-    dontWantToLoad(){
- this.navCtrl.push(EcPayscreen,{
-          user: this.user,
-       products: this.products,
-       sumAktProducts :this.sumAktProducts,
-       guthaben : this.guthaben,
-       aufladeBetrag : 0
-    }
-  
-  );
+  wantToLoad(){
+    this.navCtrl.push(Payselectscreen);
+  } 
 
-    }
+
+  dontWantToLoad(){
+    this.navCtrl.push(EcPayscreen);
+  }
 }

@@ -1,6 +1,4 @@
-import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
+
 import * as firebase from 'firebase';
 
 /*
@@ -9,7 +7,6 @@ import * as firebase from 'firebase';
   See https://angular.io/docs/ts/latest/guide/dependency-injection.html
   for more info on providers and Angular 2 DI.
 */
-@Injectable()
 export class User {
  public provider: string;
   public fullName: string;

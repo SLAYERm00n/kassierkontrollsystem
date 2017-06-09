@@ -9,12 +9,13 @@ import { User } from './user';
 @Injectable()
 export class DataProvider {
 
-
+  
   data: Object;
   user: User;
+  firebase: any;
 
   constructor(private af: AngularFire, @Inject(FirebaseApp) firebase: any, private platform: Platform) { //Add reference to native firebase SDK
-      
+      this.firebase = firebase;
   }
 
   setData(data){
@@ -58,8 +59,9 @@ export class DataProvider {
 
   writeDataToFirebase(){
     return new Promise(resolve =>{
-      var newKey = firebase.database().ref('/orders').push()
-      firebase.database().ref('/orders/' + newKey).set(
+      
+      this.firebase.database().ref('orders/').push().set(
+      
       {
         uid: this.user['uid'],
         products : this.data['products'],

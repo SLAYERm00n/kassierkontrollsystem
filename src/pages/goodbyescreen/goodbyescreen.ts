@@ -51,6 +51,7 @@ sumAktProducts : number;
       
       this.navCtrl.setRoot(HomePage);
     }).catch(error =>{
+      alert(error);
       console.error(error);
     }) 
   }

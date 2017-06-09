@@ -13,6 +13,7 @@ export class DataProvider {
   data: Object;
   user: User;
   firebase: any;
+  datum: String;
 
   constructor(private af: AngularFire, @Inject(FirebaseApp) firebase: any, private platform: Platform) { //Add reference to native firebase SDK
       this.firebase = firebase;
@@ -65,11 +66,27 @@ export class DataProvider {
       {
         uid: this.user['uid'],
         products : this.data['products'],
-        sumProducts : this.data['summe'],
-        date : new Date().getDate()
+        sumProducts : this.data['summe'],        
+        date : this.getDate()
       });
       resolve();
     })
     
+  }
+
+  setDate(){
+    var d = new Date();
+    var tag  = d.getDate();
+    var monat = d.getMonth()+1;
+    var jahr = d.getFullYear();
+    return this.datum = tag+'-'+monat+'-'+jahr;  
+
+
+  }
+
+  getDate(){
+        this.setDate();
+        return this.datum;
+
   }
 }

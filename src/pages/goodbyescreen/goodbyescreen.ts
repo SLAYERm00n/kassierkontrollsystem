@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import * as firebase from 'firebase';
 import { DataProvider } from '../../providers/dataprovider';
-
-
+import { HomePage } from "../home/home";
 
 
 /**
@@ -41,19 +40,19 @@ sumAktProducts : number;
   }
 
   ionViewDidEnter(){
-    // BestellungsFunktion @ Phil
-   /* this.dataPrv.writeDataToFirebase().then(result =>{
+     
+    this.dataPrv.writeDataToFirebase().then(result =>{
 
       while(this.timer > 0){
        this.wait(1000);
        this.timer = this.timer-1
       }
       
-      //this.writeDataToFirebase();
+      
       this.navCtrl.setRoot(HomePage);
     }).catch(error =>{
-
-    }) */
+      console.error(error);
+    }) 
   }
 
 wait(ms){

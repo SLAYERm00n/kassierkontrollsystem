@@ -16,17 +16,17 @@
 <p><h3>Es betreut Sie: <span class="mitarbeiterName" *ngIf="mitarbeiter">{{mitarbeiter.name}}</span></h3><p>
 
    <ion-list id="productlist" *ngIf="haveProducts">
-    <ion-item-sliding *ngFor="let product of products" #slideItem>
+    <ion-item-sliding *ngFor="let product of products">
       <button ion-item (press)="deleteList(product.productEAN)">
-        <div class="itemdetails">
-          {{product.productName}}
-        </div>
-        <div class="itemdetails">
+        <span class="anzahl">
           {{product.anzahl}}
-        </div>
-        <div class="itemdetails">
+        </span>
+        <span class="pname">
+          {{product.productName}}
+        </span>
+        <span class="price">
           {{product.price*product.anzahl | number:'1.2'}}€
-        </div>
+        </span>
       </button>
     </ion-item-sliding>
   </ion-list>

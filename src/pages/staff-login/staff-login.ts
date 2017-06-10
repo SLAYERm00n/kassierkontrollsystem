@@ -3,7 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner'
 import { Checkscreen } from '../checkscreen/checkscreen';
 import { DataProvider } from '../../providers/dataprovider';
-import { Mitarbeiter } from '../../providers/mitarbeiter';
 /**
  * Generated class for the StaffLogin page.
  *
@@ -35,7 +34,12 @@ store: any;
       this.barcode.scan().then((data) =>{
           this.result = JSON.parse(data['text']);
           this.store = this.result['store'];
-          this.data.getMA(this.store);
+          this.data.getMA(this.store).then(data =>{
+            alert(data)
+            this.goCheckscreen(data);
+          }).catch(error=>{
+            alert(error);
+          })
         }).catch((err) => {
           alert(err);
       });}

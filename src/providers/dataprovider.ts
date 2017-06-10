@@ -107,9 +107,14 @@ export class DataProvider {
      return new Promise((resolve, reject) =>{
        this.storeMitarbeiterNode = this.db.list('/store/'+store['store']+"/MA/");
         this.storeMitarbeiterNode.forEach(element=>{
-          resolve(element);
-          this.mitarbeiter = element;
-          this.checkMA(store, this.mitarbeiter);
+          console.dir(element);
+          for(var i=0;i<element.length;i++){
+            if(element[i].password == store['pw']){
+              resolve(element[i]);
+            }else{
+              reject("Mitarbeiter nicht gefunden")
+            }
+          }
         }
       );
      })
@@ -118,21 +123,5 @@ export class DataProvider {
     /*
   Passwort aus dem QR Code wird mit Passwort aus der Datenbank verglichen
   */
-  checkMA(store, mitarbeiter){
-
-    return new Promise((resolve, reject) =>{
-      for(let i=0; i < mitarbeiter.length; i++){
-        console.log("Schleifendurchgang: " +i)
-        if(this.mitarbeiter[i]['password'] === store['pw']){        
-          console.log("Mitarbeiter gefunden");
-          //this.login.goCheckscreen(store);
-          break;
-      }
-      else {
-        console.log("nicht gefunden");
-      }
-    }
-    })
-}
 
 }

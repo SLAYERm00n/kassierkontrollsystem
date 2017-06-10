@@ -36,7 +36,9 @@ store: any;
           this.result = JSON.parse(data['text']);
           this.store = this.result['store'];
           this.data.getMA(this.store).then(data =>{
-            alert(data)
+            console.log("data aus getMA");
+            console.log(data);
+            //alert(data)
             this.goPurchaseCheck(data);
           }).catch(error=>{
             alert(error);

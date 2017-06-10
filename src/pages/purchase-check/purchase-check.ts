@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PurchaseOverview } from '../purchase-overview/purchase-overview';
+import { StaffLogin } from '../staff-login/staff-login';
 
 
 
@@ -18,7 +19,11 @@ import { PurchaseOverview } from '../purchase-overview/purchase-overview';
 })
 export class PurchaseCheck {
 
+  mitarbeiter: any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    
+    this.mitarbeiter = navParams.get("mitarbeiter");
   }
 
   ionViewDidLoad() {

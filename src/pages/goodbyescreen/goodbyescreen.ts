@@ -32,7 +32,8 @@ sumAktProducts : number;
     
     //aktualisiertes Guthaben in die Datenbank laden
     this.user['amount'] = this.guthaben - this.sumAktProducts;
-    this.dataPrv.updateUser(this.user);
+    alert(this.user['amount']);
+    this.dataPrv.updateUser({amount: this.user['amount']});
   }
 
   ionViewDidLoad() {

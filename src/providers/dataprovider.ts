@@ -61,7 +61,7 @@ export class DataProvider {
       var newKey = firebase.database().ref('/orders').push()
       firebase.database().ref('/orders/' + newKey).set(
       {
-        uid: this.user['uid'],
+        uid: this.user.uid,
         products : this.data['products'],
         sumProducts : this.data['summe'],
         date : new Date().getDate()

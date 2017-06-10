@@ -35,7 +35,7 @@ aufladeBetrag: number;
     this.guthaben = this.guthaben + this.aufladeBetrag
     this.user['amount'] = this.guthaben;
     
-      this.dataPrv.updateUser(this.user);
+      this.dataPrv.updateUser({amount: this.guthaben});
   }
 
   ionViewDidLoad() {

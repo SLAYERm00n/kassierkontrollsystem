@@ -1,12 +1,10 @@
 page-purchase-check {
 
-    .text{
-        font-size: 1.5em;
-    }
-
-    .mitarbeiterName {
-        font-size: 1.5em;
-        font-weight: bold;        
+ h3{
+        text-align: center;
+        color: color($colors, secondary);
+        margin-top: 30px !important;
+        margin-bottom: 30px !important;
     }
 
 h1{
@@ -15,4 +13,8 @@ h1{
     margin-right: auto;
     margin-bottom: -2%;
 }
+
+    .mitarbeiterName {
+        font-weight: bold;        
+    }
 }

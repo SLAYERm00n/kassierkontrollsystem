@@ -107,9 +107,11 @@ export class DataProvider {
      return new Promise((resolve, reject) =>{
        this.storeMitarbeiterNode = this.db.list('/store/'+store['store']+"/MA/");
         this.storeMitarbeiterNode.forEach(element=>{
+          console.log("Element in foreach")
           console.dir(element);
           for(var i=0;i<element.length;i++){
             if(element[i].password == store['pw']){
+              console.log("Mitarbeiter gefunden");
               console.dir(element[i].password);
               resolve(element[i]);
             }else{

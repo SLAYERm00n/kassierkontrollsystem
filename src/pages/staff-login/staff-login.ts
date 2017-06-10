@@ -48,8 +48,8 @@ store: any;
       });}
 
       goPurchaseCheck(mitarbeiter){
-   this.navCtrl.setRoot(PurchaseCheck, {
-    mitarbeiter: mitarbeiter
+        this.navCtrl.setRoot(PurchaseCheck, {
+        mitarbeiter: mitarbeiter
   }
    )}
   

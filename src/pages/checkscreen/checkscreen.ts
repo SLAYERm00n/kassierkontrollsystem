@@ -27,4 +27,5 @@ export class Checkscreen {
 openStaffLogin(){
 this.navCtrl.push(StaffLogin);
 }
+
 }

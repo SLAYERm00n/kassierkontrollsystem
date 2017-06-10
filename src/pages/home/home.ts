@@ -72,8 +72,12 @@ public goToGoodbyescreen(){
 }
 
 getMitarbeiter(){
-  this.navCtrl.push(StaffLogin);
+  this.navCtrl.push(Checkscreen);
 }
+
+ionViewDidLoad() {
+    console.log('ionViewDidLoad Homescreen');
+  }
   
 }
 

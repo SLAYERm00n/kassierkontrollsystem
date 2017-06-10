@@ -36,4 +36,9 @@ guthaben: number;
   dontWantToLoad(){
     this.navCtrl.push(EcPayscreen,{aufladeBetrag : 0});
   }
+
+ionViewDidLoad() {
+    console.log('ionViewDidLoad Sumscreen');
+  }
+
 }

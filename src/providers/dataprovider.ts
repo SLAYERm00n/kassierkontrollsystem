@@ -110,6 +110,7 @@ export class DataProvider {
           console.dir(element);
           for(var i=0;i<element.length;i++){
             if(element[i].password == store['pw']){
+              console.dir(element[i].password);
               resolve(element[i]);
             }else{
               reject("Mitarbeiter nicht gefunden")
@@ -119,9 +120,4 @@ export class DataProvider {
       );
      })
   } 
-     
-    /*
-  Passwort aus dem QR Code wird mit Passwort aus der Datenbank verglichen
-  */
-
 }

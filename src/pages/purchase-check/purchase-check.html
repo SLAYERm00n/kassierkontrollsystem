@@ -14,22 +14,37 @@
 
 <ion-content padding>
 <p><h3>Es betreut Sie: <span class="mitarbeiterName" *ngIf="mitarbeiter">{{mitarbeiter.name}}</span></h3><p>
-  <span class="kunde" *ngIf="user"><h2>Kunde: {{user.fullName}}</h2></span>
-   <ion-list id="productlist" *ngIf="haveProducts">
-    <ion-item-sliding *ngFor="let product of products">
-      <button ion-item>
-        <div class="itemdetails">
-          {{product.productName}}
-        </div>
-        <div class="itemdetails">
-          {{product.anzahl}}
-        </div>
-        <div class="itemdetails">
-          {{product.price*product.anzahl | number:'1.2'}}€
-        </div>
-      </button>
-    </ion-item-sliding>
-  </ion-list>
+  <span class="kunde" *ngIf="user">
+    <ion-card>
+      <ion-card-header>Kundenprofil</ion-card-header> 
+        <ion-card-content>
+          Name: {{user.fullName}} <br>
+          Guthaben: {{user.amount}} €<br>
+          E-Mail-Adresse: {{user.email}} <br>
+          KundenID: {{user.uid}}
+        </ion-card-content>
+    </ion-card>
+  </span>
+<ion-card id="productlist" *ngIf="haveProducts">
+  <ion-card-header>Warenkorb</ion-card-header>
+    <ion-card-content>
+      <ion-list>
+          <ion-item-sliding *ngFor="let product of products">
+            <button ion-item>
+              <div class="itemdetails">
+                {{product.productName}}
+              </div>
+              <div class="itemdetails">
+                {{product.anzahl}}
+              </div>
+              <div class="itemdetails">
+                {{product.price*product.anzahl | number:'1.2'}}€
+              </div>
+            </button>  
+          </ion-item-sliding>
+      </ion-list>
+    </ion-card-content>
+</ion-card>
 <ion-footer>
       <button ion-button full large (click)="openScanner()"><h1>Warenkorb QR-Code</h1></button>
 </ion-footer>

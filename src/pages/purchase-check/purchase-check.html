@@ -14,10 +14,9 @@
 
 <ion-content padding>
 <p><h3>Es betreut Sie: <span class="mitarbeiterName" *ngIf="mitarbeiter">{{mitarbeiter.name}}</span></h3><p>
-
    <ion-list id="productlist" *ngIf="haveProducts">
     <ion-item-sliding *ngFor="let product of products">
-      <button ion-item (press)="deleteList(product.productEAN)">
+      <button ion-item>
         <span class="anzahl">
           {{product.anzahl}}
         </span>
@@ -30,7 +29,6 @@
       </button>
     </ion-item-sliding>
   </ion-list>
-
 <ion-footer>
 
   

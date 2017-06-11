@@ -64,3 +64,18 @@ text-decoration: underline;
 #email .label-md, #email .label-ios{
     margin: 13px 8px 5px 0px;
 }
+
+h1{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: -2%;
+}
+
+
+ h3{
+        text-align: center;
+        color: color($colors, secondary);
+        margin-top: 30px !important;
+        margin-bottom: 30px !important;
+    }

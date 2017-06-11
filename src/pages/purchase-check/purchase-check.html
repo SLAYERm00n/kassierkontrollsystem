@@ -46,6 +46,7 @@
     </ion-card-content>
 </ion-card>
 <ion-footer>
-      <button ion-button full large (click)="openScanner()"><h1>Warenkorb QR-Code</h1></button>
+      <button ion-button full large *ngIf="!haveProducts" (click)="openScanner()"><h1>Warenkorb QR-Code</h1></button>
+      <button ion-button full large *ngIf="haveProducts" (click)="goToHome()"><h1>Zur Startseite</h1></button>
 </ion-footer>
 </ion-content>

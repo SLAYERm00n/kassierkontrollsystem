@@ -4,6 +4,7 @@ import { PurchaseOverview } from '../purchase-overview/purchase-overview';
 import { StaffLogin } from '../staff-login/staff-login';
 import { User } from '../../providers/user';
 import { DataProvider } from '../../providers/dataprovider';
+import { HomePage } from '../home/home';
 import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner'
 
 
@@ -88,5 +89,9 @@ export class PurchaseCheck {
   }
 openPurchaseOverview(){
   this.navCtrl.push(PurchaseOverview);
+}
+
+public goToHome(){
+    this.navCtrl.push(HomePage);
 }
 }

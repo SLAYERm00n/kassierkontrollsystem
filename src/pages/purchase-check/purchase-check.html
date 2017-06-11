@@ -14,24 +14,23 @@
 
 <ion-content padding>
 <p><h3>Es betreut Sie: <span class="mitarbeiterName" *ngIf="mitarbeiter">{{mitarbeiter.name}}</span></h3><p>
+  <span class="kunde" *ngIf="user"><h2>Kunde: {{user.fullName}}</h2></span>
    <ion-list id="productlist" *ngIf="haveProducts">
     <ion-item-sliding *ngFor="let product of products">
       <button ion-item>
-        <span class="anzahl">
-          {{product.anzahl}}
-        </span>
-        <span class="pname">
+        <div class="itemdetails">
           {{product.productName}}
-        </span>
-        <span class="price">
+        </div>
+        <div class="itemdetails">
+          {{product.anzahl}}
+        </div>
+        <div class="itemdetails">
           {{product.price*product.anzahl | number:'1.2'}}€
-        </span>
+        </div>
       </button>
     </ion-item-sliding>
   </ion-list>
 <ion-footer>
-
-  
       <button ion-button full large (click)="openScanner()"><h1>Warenkorb QR-Code</h1></button>
 </ion-footer>
 </ion-content>

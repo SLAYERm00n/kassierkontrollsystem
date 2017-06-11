@@ -36,6 +36,7 @@ export class PurchaseCheck {
 
     this.mitarbeiter = navParams.get("mitarbeiter");
     this.product = navParams.get('product');
+    this.user = navParams.get('user');
   }
 
     async openScanner() {
@@ -47,6 +48,8 @@ export class PurchaseCheck {
       console.log("Products aus dem Warenkorb");
       console.dir(this.products);
       this.user = this.result['user'];
+      console.log("User");
+      console.dir(this.user);
       this.sumAktProducts = this.result['summe'];
       
       this.data = {

@@ -77,7 +77,6 @@ export class DataProvider {
       });
       resolve();
     })
-    
   }
 
   setDate(){
@@ -86,14 +85,11 @@ export class DataProvider {
     var monat = d.getMonth()+1;
     var jahr = d.getFullYear();
     return this.datum = tag+'-'+monat+'-'+jahr;  
-
-
   }
 
   getDate(){
         this.setDate();
         return this.datum;
-
   }
 
   /*

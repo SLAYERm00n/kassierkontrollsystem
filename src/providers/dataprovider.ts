@@ -1,12 +1,8 @@
-import { Injectable, EventEmitter, Inject } from '@angular/core';
-import { AuthProviders, AngularFire, FirebaseAuthState, AuthMethods, FirebaseApp, FirebaseListObservable } from 'angularfire2'; //Add FirebaseApp
-import { auth } from 'firebase'; //needed for the FacebookAuthProvider
+import { Injectable, Inject } from '@angular/core';
+import { AuthProviders, AngularFire, AuthMethods, FirebaseApp, FirebaseListObservable } from 'angularfire2'; //Add FirebaseApp
 import { Observable } from "rxjs/Observable";
 import { Platform } from 'ionic-angular';
 import { User } from './user';
-import { StaffLogin } from '../pages/staff-login/staff-login';
-import { Checkscreen } from '../pages/checkscreen/checkscreen';
-import { NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 
 
 @Injectable()

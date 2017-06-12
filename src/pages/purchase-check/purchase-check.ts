@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PurchaseOverview } from '../purchase-overview/purchase-overview';
-import { StaffLogin } from '../staff-login/staff-login';
-import { User } from '../../providers/user';
 import { DataProvider } from '../../providers/dataprovider';
 import { HomePage } from '../home/home';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner'
@@ -74,7 +72,7 @@ export class PurchaseCheck {
           alert(err);
         } 
         );
-  }
+    }
 
 
 

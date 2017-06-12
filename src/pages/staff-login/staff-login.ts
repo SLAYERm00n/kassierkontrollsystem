@@ -24,7 +24,6 @@ store: any;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private barcode: BarcodeScanner, private data: DataProvider) {
-
   }
 
   /*
@@ -35,22 +34,23 @@ store: any;
           this.result = JSON.parse(data['text']);
           this.store = this.result['store'];
           this.data.getMA(this.store).then(data =>{
-            console.log("data aus getMA");
-            console.log(data);
-            //alert(data)
             this.goPurchaseCheck(data);
-          }).catch(error=>{
-            alert(error);
-          })
-        }).catch((err) => {
-          alert(err);
-      });}
-
-      goPurchaseCheck(mitarbeiter){
-        this.navCtrl.setRoot(PurchaseCheck, {
-        mitarbeiter: mitarbeiter
+            }).catch(error=>{
+              alert(error);
+            })
+      }).catch((err) => {
+         alert(err);
+        });
   }
-   )}
+
+  /*
+  Weiter zu PurchaseCheck. Mitarbeiter wird übergeben
+  */
+  goPurchaseCheck(mitarbeiter){
+    this.navCtrl.setRoot(PurchaseCheck, {
+    mitarbeiter: mitarbeiter
+    }) 
+  }
   
   
   ionViewDidLoad() {

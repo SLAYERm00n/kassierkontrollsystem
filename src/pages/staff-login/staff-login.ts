@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner'
-import { Checkscreen } from '../checkscreen/checkscreen';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner'
 import { DataProvider } from '../../providers/dataprovider';
 import { PurchaseCheck } from '../purchase-check/purchase-check'
 /**

@@ -23,9 +23,8 @@ export class Checkscreen {
     console.log('ionViewDidLoad Checkscreen');
   }
 
-
-openStaffLogin(){
-this.navCtrl.push(StaffLogin);
-}
+  openStaffLogin(){
+    this.navCtrl.push(StaffLogin);
+  }
 
 }

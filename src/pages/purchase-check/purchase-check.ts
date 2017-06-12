@@ -5,7 +5,7 @@ import { StaffLogin } from '../staff-login/staff-login';
 import { User } from '../../providers/user';
 import { DataProvider } from '../../providers/dataprovider';
 import { HomePage } from '../home/home';
-import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner'
+import { BarcodeScanner } from '@ionic-native/barcode-scanner'
 
 
 
@@ -40,58 +40,53 @@ export class PurchaseCheck {
     this.user = navParams.get('user');
   }
 
-    async openScanner() {
 
-
-    await this.barcode.scan().then(data =>{
-      this.result = JSON.parse(data['text']);
-      this.products = this.result['products'];
-      console.log("Products aus dem Warenkorb");
-      console.dir(this.products);
-      this.user = this.result['user'];
-      console.log("User");
-      console.dir(this.user);
-      this.sumAktProducts = this.result['summe'];
-      
-      this.data = {
-        user: this.user,
-        products: this.products,
-        summe: this.sumAktProducts
-      }
+    /*
+    Scanner, der den QR Code des Warenkorbs ausliest, diesen und das Kundenprofil ausgibt
+    */
+    openScanner(){
+      this.barcode.scan().then((data) =>{
+          
+          this.result = JSON.parse(data['text']);
+          console.log("this.result");
+          console.dir(this.result);
+          this.products = this.result['products'];
+          console.log("this.products")
+          console.dir(this.products);
+          this.user = this.result['user'];
+          this.sumAktProducts = this.result['summe'];
+          
+          this.data = {
+            user: this.user,
+            products: this.products,
+            summe: this.sumAktProducts
+          }
 
         if(this.products.length>0){
             this.haveProducts = true;
-        }else{
+        }
+
+        else{
             this.haveProducts = false;
-        }
-        console.log("haveProducts");
-        console.log(this.haveProducts);
-/*
-      this.dataPrv.setData(this.data).then(result =>{
-        var user = result;
-        if(user != null){  
-            if(this.user['amount'] > this.sumAktProducts){
-              this.goToGoodbyescreen();
-            }
-            else{
-              this.goToSumscreen();
-            }
-        }else{
-          alert("Scan war nicht erfolgreich!");
-        }
-      });
- */   
-    })
+          }
+
+        }).catch((err) => {
+          alert(err);
+        } 
+        );
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad PurchaseCheck');
-  }
-openPurchaseOverview(){
-  this.navCtrl.push(PurchaseOverview);
-}
 
-public goToHome(){
-    this.navCtrl.push(HomePage);
-}
+
+    ionViewDidLoad() {
+       console.log('ionViewDidLoad PurchaseCheck');
+      }
+
+    openPurchaseOverview(){
+      this.navCtrl.push(PurchaseOverview);
+    }
+
+    public goToHome(){
+       this.navCtrl.push(HomePage);
+    }
 }

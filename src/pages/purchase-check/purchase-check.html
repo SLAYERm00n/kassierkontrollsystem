@@ -19,7 +19,7 @@
       <ion-card-header>Kundenprofil</ion-card-header> 
         <ion-card-content>
           Name: {{user.fullName}} <br>
-          Guthaben: {{user.amount}} €<br>
+          Guthaben: {{user.amount | number:'1.2'}} €<br>
           E-Mail-Adresse: {{user.email}} <br>
           KundenID: {{user.uid}}
         </ion-card-content>
@@ -45,6 +45,9 @@
       </ion-list>
     </ion-card-content>
 </ion-card>
+
+<h3 *ngIf="!haveProducts">Bitte Scannen Sie den Warenkorb QR-Code ein</h3>
+
 <div class="LoginButton">
   <button ion-button Large round large *ngIf="!haveProducts" (click)="openScanner()"><h1>QR-Code scannen</h1></button>
 </div>

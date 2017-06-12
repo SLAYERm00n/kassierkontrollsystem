@@ -5,9 +5,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { AngularFireModule } from 'angularfire2';
-import * as firebase from 'firebase';
-
-
 
 //Seiten
 import { MyApp } from './app.component';
@@ -23,11 +20,7 @@ import { Checkscreen } from '../pages/checkscreen/checkscreen';
 import { PurchaseOverview } from '../pages/purchase-overview/purchase-overview';
 
 //provider
-
 import { DataProvider } from '../providers/dataprovider';
-
-
-
 
 
 const config = {

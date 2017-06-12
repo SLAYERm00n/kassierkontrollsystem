@@ -4,7 +4,6 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner'
 import { Sumscreen  } from '../sumscreen/sumscreen';
 import { Goodbyescreen  } from '../goodbyescreen/goodbyescreen';
 import { Checkscreen } from '../checkscreen/checkscreen';
-import { User } from '../../providers/user';
 import { DataProvider } from '../../providers/dataprovider';
 
 @Component({

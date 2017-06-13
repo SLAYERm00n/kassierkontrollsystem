@@ -1,5 +1,5 @@
-import { Injectable, Inject } from '@angular/core';
-import { AuthProviders, AngularFire, AuthMethods, FirebaseApp, FirebaseListObservable } from 'angularfire2'; //Add FirebaseApp
+import { Injectable, EventEmitter, Inject } from '@angular/core';
+import { AuthProviders, FirebaseAuthState, AngularFire, AuthMethods, FirebaseApp, FirebaseListObservable } from 'angularfire2'; //Add FirebaseApp
 import { Observable } from "rxjs/Observable";
 import { Platform } from 'ionic-angular';
 import { User } from './user';
@@ -70,27 +70,17 @@ export class DataProvider {
       this.firebase.database().ref('orders/').push().set(
       
       {
-        uid: this.user.uid,
+        uid: this.user['uid'],
         products : this.data['products'],
         sumProducts : this.data['summe'],        
-        date : this.getDate()
+        date : new Date().toISOString(),
+        store: this.data['store']
       });
       resolve();
     })
   }
 
-  setDate(){
-    var d = new Date();
-    var tag  = d.getDate();
-    var monat = d.getMonth()+1;
-    var jahr = d.getFullYear();
-    return this.datum = tag+'-'+monat+'-'+jahr;  
-  }
-
-  getDate(){
-        this.setDate();
-        return this.datum;
-  }
+  
 
   /*
   Mitarbeiter aus dem richtigen Store werden hier geladen

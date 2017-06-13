@@ -36,8 +36,8 @@ data: any;
       this.data = {
         user: this.user,
         products: this.products,
-        summe: this.sumAktProducts
-	store: this.result['store']
+        summe: this.sumAktProducts,
+	      store: this.result['store']
       }
       this.dataPrv.setData(this.data).then(result =>{
         var user = result;

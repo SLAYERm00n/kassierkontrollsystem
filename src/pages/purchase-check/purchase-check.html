@@ -48,10 +48,7 @@
 
 <h3 *ngIf="!haveProducts">Bitte Scannen Sie den Warenkorb QR-Code ein</h3>
 
-<div class="LoginButton">
-  <button ion-button Large round large *ngIf="!haveProducts" (click)="openScanner()"><h1>QR-Code scannen</h1></button>
-</div>
 <ion-footer>
-      <button ion-button full large *ngIf="haveProducts" (click)="goToHome()"><h1>Warenkorb Überprüfen</h1></button>
+      <button ion-button full large *ngIf="haveProducts" (click)="openPurchaseOverview()"><h1>Warenkorb Überprüfen</h1></button>
 </ion-footer>
 </ion-content>

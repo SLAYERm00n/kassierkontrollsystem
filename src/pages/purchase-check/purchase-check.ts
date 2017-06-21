@@ -29,22 +29,23 @@ export class PurchaseCheck {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public barcode: BarcodeScanner, public dataPrv: DataProvider) {
 
-    this.data = this.dataPrv.getData();
-    this.mitarbeiter = navParams.get("mitarbeiter");
-    this.products = this.data.products;
-    this.user = this.data.user;
-
-    if(this.products.lenght!=0){
-      this.haveProducts= true;
-    }
+    
   }
 
 
 
 
     ionViewDidLoad() {
-       console.log('ionViewDidLoad PurchaseCheck');
-      }
+       this.data = this.dataPrv.getData();
+        console.log(this.data);
+        this.mitarbeiter = this.navParams.get("mitarbeiter");
+        this.products = this.data.products;
+        this.user = this.data.user;
+
+        if(this.products.lenght!=0){
+          this.haveProducts= true;
+        }
+    }
 
     openPurchaseOverview(){
       this.navCtrl.push(PurchaseOverview);

@@ -7,12 +7,36 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>purchaseOverview</ion-title>
+    <ion-title>Einkaufsüberblick</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only item-right (click)="finishCheck()">
+        <ion-icon name="checkmark" style="color: #fff"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-<button ion-button full large (click)="openPaySelectScreen()"><h1>Bezahlen</h1></button>
+  <h3 *ngIf="!started">Bitte Scannen Sie alle Produkte des Warenkorbs des Kunden ein</h3>
+  
+  <ion-list *ngIf="started">
+      <ion-item *ngFor="let product of scannedProducts" [ngStyle]="{'background-color': product.status}">
+          <div class="itemdetails" >
+            {{product.name}}
+          </div>
+          <div class="itemdetails">
+            {{product.anzahl}}
+          </div>
+          <div class="itemdetails">
+            {{product.price*product.anzahl | number:'1.2'}}€
+          </div>
+      </ion-item>
+  
+  </ion-list>
+
+  <ion-fab bottom right class="scan">
+   <button ion-fab (click)="scanBarcode()"><ion-icon name="camera"></ion-icon></button>
+ </ion-fab>
 </ion-content>

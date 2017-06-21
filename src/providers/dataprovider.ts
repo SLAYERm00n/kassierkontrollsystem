@@ -14,6 +14,8 @@ export class DataProvider {
   firebase: any;
   datum: String;
   storeMitarbeiterNode: FirebaseListObservable<any>;;
+  storeProductsNode: FirebaseListObservable<any>;;
+
   db: any;
   storeid: any;
   mitarbeiter: any;
@@ -64,6 +66,15 @@ export class DataProvider {
       });
   }
 
+  getProducts(){
+    return new Promise((resolve, reject) =>{
+      this.storeProductsNode = this.db.list('/store/'+1+"/products");
+      this.storeProductsNode.forEach(element=>{
+        resolve(element);
+      });
+    })
+  }
+
   writeDataToFirebase(){
     return new Promise(resolve =>{
       
@@ -80,6 +91,11 @@ export class DataProvider {
     })
   }
 
+  randomCheck(){
+    return new Promise((reject, resolve) =>{
+      resolve(Math.floor(Math.random() * 20) + 1);
+    })
+  }
   
 
   /*

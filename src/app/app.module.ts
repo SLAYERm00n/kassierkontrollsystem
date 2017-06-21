@@ -18,6 +18,10 @@ import { StaffLogin } from '../pages/staff-login/staff-login';
 import { PurchaseCheck } from '../pages/purchase-check/purchase-check';
 import { Checkscreen } from '../pages/checkscreen/checkscreen';
 import { PurchaseOverview } from '../pages/purchase-overview/purchase-overview';
+import { CorrectPurchase } from '../pages/correct-purchase/correct-purchase';
+
+//Module
+import {CorrectPurchaseModule } from '../pages/correct-purchase/correct-purchase.module';
 
 //provider
 import { DataProvider } from '../providers/dataprovider';
@@ -46,7 +50,8 @@ const config = {
     StaffLogin,
     PurchaseCheck,
     Checkscreen,
-    PurchaseOverview
+    PurchaseOverview,
+    CorrectPurchase
   ],
   imports: [
    BrowserModule,
@@ -66,7 +71,8 @@ const config = {
     StaffLogin,
     PurchaseCheck,
     Checkscreen,
-    PurchaseOverview
+    PurchaseOverview,
+    CorrectPurchase
   ],
   providers: [
     StatusBar,

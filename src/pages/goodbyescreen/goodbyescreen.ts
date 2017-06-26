@@ -30,7 +30,6 @@ sumAktProducts : number;
     
     //aktualisiertes Guthaben in die Datenbank laden
     this.user['amount'] = this.guthaben - this.sumAktProducts;
-    alert(this.user['amount']);
     this.dataPrv.updateUser({amount: this.user['amount']});
   }
 

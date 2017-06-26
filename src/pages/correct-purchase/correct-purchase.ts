@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Goodbyescreen  } from '../goodbyescreen/goodbyescreen';
 
 /**
  * Generated class for the CorrectPurchase page.
@@ -72,6 +73,10 @@ export class CorrectPurchase {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CorrectPurchase');
+  }
+
+  goToReady(){
+        this.navCtrl.push(Goodbyescreen);
   }
 
 }

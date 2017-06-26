@@ -23,6 +23,40 @@ data: any;
     this.dataPrv.loginWithEmail({email: 'statususer@shoppingapp.de', password: 'status1234'}).subscribe(data =>{
       console.log("Login erfolgreich")
     })
+
+    this.result = JSON.parse('{"user":{"uid":"05SHxBhSLOX1CTRxZPfiFclHUYB3","userRef":"https://schoppingapp.firebaseio.com/users/05SHxBhSLOX1CTRxZPfiFclHUYB3","fullName":"Philip Wangler","email":"philip.wangler@hs-furtwangen.de","amount":126.41},"products":[{"anzahl":1,"price":0.8,"productName":"Saskia Minearlwasser","productEAN":"42143574","productCat":"Lebensmittel"}],"summe":0.8,"store":"Kiosk am Bahnhof"}');
+  
+    this.products = this.result['products'];
+      this.user = this.result['user'];
+      this.sumAktProducts = this.result['summe'];
+      
+      this.data = {
+        user: this.user,
+        products: this.products,
+        summe: this.sumAktProducts,
+	      store: this.result['store']
+      }
+      this.dataPrv.setData(this.data).then(result =>{
+        var user = result;
+        this.dataPrv.randomCheck().then(random =>{
+          console.log(random);
+          if(random==2){
+            this.navCtrl.setRoot(Checkscreen);
+          }else{
+            if(user != null){  
+              if(this.user['amount'] > this.sumAktProducts){
+                this.goToGoodbyescreen();
+              }
+              else{
+                this.goToSumscreen();
+              }
+            }else{
+              alert("Scan war nicht erfolgreich!");
+            }
+          }
+          
+        })
+      });
   }
 
 
@@ -42,7 +76,8 @@ data: any;
       this.dataPrv.setData(this.data).then(result =>{
         var user = result;
         this.dataPrv.randomCheck().then(random =>{
-          if(random=10){
+          console.log(random)
+          if(random==2){
             this.navCtrl.setRoot(Checkscreen);
           }else{
             if(user != null){  
@@ -57,6 +92,8 @@ data: any;
             }
           }
           
+        }).catch(error =>{
+          alert(error);
         })
       });
     

@@ -92,8 +92,8 @@ export class DataProvider {
   }
 
   randomCheck(){
-    return new Promise((reject, resolve) =>{
-      resolve(Math.floor(Math.random() * 2) + 1);
+    return new Promise(resolve =>{
+      resolve(Math.floor(Math.random() * 3) + 1);
     })
   }
   

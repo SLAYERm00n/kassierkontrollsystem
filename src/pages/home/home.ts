@@ -24,6 +24,8 @@ data: any;
       console.log("Login erfolgreich")
     })
 
+    /*
+
     this.result = JSON.parse('{"user":{"uid":"05SHxBhSLOX1CTRxZPfiFclHUYB3","userRef":"https://schoppingapp.firebaseio.com/users/05SHxBhSLOX1CTRxZPfiFclHUYB3","fullName":"Philip Wangler","email":"philip.wangler@hs-furtwangen.de","amount":126.41},"products":[{"anzahl":1,"price":0.8,"productName":"Saskia Minearlwasser","productEAN":"42143574","productCat":"Lebensmittel"}],"summe":0.8,"store":"Kiosk am Bahnhof"}');
   
     this.products = this.result['products'];
@@ -56,7 +58,7 @@ data: any;
           }
           
         })
-      });
+      }); */
   }
 
 
@@ -76,7 +78,7 @@ data: any;
       this.dataPrv.setData(this.data).then(result =>{
         var user = result;
         this.dataPrv.randomCheck().then(random =>{
-          console.log(random)
+          console.log(random);
           if(random==2){
             this.navCtrl.setRoot(Checkscreen);
           }else{

@@ -93,7 +93,7 @@ export class DataProvider {
 
   randomCheck(){
     return new Promise((reject, resolve) =>{
-      resolve(Math.floor(Math.random() * 20) + 1);
+      resolve(Math.floor(Math.random() * 2) + 1);
     })
   }
   

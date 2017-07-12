@@ -24,7 +24,7 @@
   <ion-list *ngIf="started">
       <ion-item *ngFor="let product of scannedProducts" [ngStyle]="{'background-color': product.status}">
           <div class="itemdetails" >
-            {{product.name}}
+            {{product.productName}}
           </div>
           <div class="itemdetails">
             {{product.anzahl}}
